@@ -11,29 +11,55 @@
 <body>
   <div id="map"></div>
   <script>
-    var citymap = {
-      {
-        center: {
-          lat: 41.878,
-          lng: -87.629
-        },
-        owner: "basti"
-      }, {
-        center: {
-          lat: 40.714,
-          lng: -74.005
-        },
-        owner: "basti"
-      },
-    };
+    var marker_basti = [{
+      center: {
+        lat: 54.0866530,
+        lng: 12.0968390
+      }
+    }, {
+      center: {
+        lat: 54.0838730,
+        lng: 12.0723400
+      }
+    }];
+    var marker_willi = [{
+      center: {
+        lat: 54.0791590,
+        lng: 12.1068540
+      }
+    }, {
+      center: {
+        lat: 54.0784020,
+        lng: 12.1151800
+      }
+    }];
+    var marker_ruven = [{
+      center: {
+        lat: 54.0831410,
+        lng: 12.1026200
+      }
+    }, {
+      center: {
+        lat: 54.0889390,
+        lng: 12.0973110
+      }
+    }];
 
     function initMap() {
+
+      var sum = marker_basti.concat(marker_willi, marker_ruven);
+      var avg_lat = sum.map(el => el.center.lat).reduce(function(acc, val) {
+        return acc + val;
+      }, 0) / sum.length;
+      var avg_lng = sum.map(el => el.center.lng).reduce(function(acc, val) {
+        return acc + val;
+      }, 0) / sum.length;
       // Create the map.
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
+        zoom: 12,
         center: {
-          lat: 37.090,
-          lng: -95.712
+          lat: avg_lat,
+          lng: avg_lng
         },
         mapTypeId: 'terrain'
       });
@@ -41,24 +67,45 @@
       // Construct the circle for each value in citymap.
       // Note: We scale the area of the circle based on the population.
       // Add the circle for this city to the map.
-      citymap.forEach(function(el) {
-        /*var cityCircle = new google.maps.Circle({
-          strokeColor: '#FF0000',
+      marker_basti.forEach(function(el) {
+        var cityCircle = new google.maps.Circle({
+          strokeColor: '#CC00CC',
           strokeOpacity: 0.8,
           strokeWeight: 2,
-          fillColor: '#FF0000',
+          fillColor: '#CC00CC',
           fillOpacity: 0.35,
           map: map,
           center: el.center,
           radius: 500
-        });*/
+        });
+      });
+      marker_willi.forEach(function(el) {
+        var cityCircle = new google.maps.Circle({
+          strokeColor: '#00CC00',
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: '#0c0',
+          fillOpacity: 0.35,
+          map: map,
+          center: el.center,
+          radius: 500
+        });
+      });
+      marker_ruven.forEach(function(el) {
+        var cityCircle = new google.maps.Circle({
+          strokeColor: '#00c',
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: '#00c',
+          fillOpacity: 0.35,
+          map: map,
+          center: el.center,
+          radius: 500
+        });
       });
     }
 
   </script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfdK5_KYTZ_08Zk6ZnyYQ9pZvcYhoA4rk&callback=initMap">
-
-
-  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfdK5_KYTZ_08Zk6ZnyYQ9pZvcYhoA4rk&callback=initMap"></script>
 </body>
 </html>

@@ -6,39 +6,53 @@
 <body>
   <div id="map"></div>
   <script>
-    var marker_basti = [{
-      center: {
-        lat: 54.0866530,
-        lng: 12.0968390
-      }
-    }, {
-      center: {
-        lat: 54.0838730,
-        lng: 12.0723400
-      }
-    }];
-    var marker_willi = [{
-      center: {
-        lat: 54.0791590,
-        lng: 12.1068540
-      }
-    }, {
-      center: {
-        lat: 54.0784020,
-        lng: 12.1151800
-      }
-    }];
-    var marker_ruven = [{
-      center: {
-        lat: 54.0831410,
-        lng: 12.1026200
-      }
-    }, {
-      center: {
-        lat: 54.0889390,
-        lng: 12.0973110
-      }
-    }];
+    var marker_basti = [{center:{lat:54.0866530,lng:12.0968390}},
+{center:{lat:54.0856130,lng:12.0881140}},
+{center:{lat:54.0838730,lng:12.0723400}},
+{center:{lat:54.0738550,lng:12.0874870}},
+{center:{lat:54.0692450,lng:12.0802190}},
+{center:{lat:54.0760440,lng:12.0956690}},
+{center:{lat:54.0748270,lng:12.1035920}},
+{center:{lat:54.0743430,lng:12.1039290}},
+{center:{lat:54.0881750,lng:12.1230090}},
+{center:{lat:54.0884380,lng:12.1319380}},
+{center:{lat:54.0927290,lng:12.0993310}},
+{center:{lat:54.0979410,lng:12.0907260}},
+{center:{lat:54.1008700,lng:12.0822380}},
+{center:{lat:54.0958210,lng:12.0732190}},
+{center:{lat:54.1130320,lng:12.0781720}},
+{center:{lat:54.1259540,lng:12.0575760}},
+{center:{lat:54.1306610,lng:12.0578900}},];
+    var marker_willi = [{center:{lat:54.0791590,lng:12.1068540}},
+{center:{lat:54.0784020,lng:12.1151800}},
+{center:{lat:54.0931090,lng:12.1074630}},
+{center:{lat:54.0881110,lng:12.0997900}},
+{center:{lat:54.1051080,lng:12.0632680}},];
+    var marker_ruven = [{center:{lat:54.0831410,lng:12.1026200}},
+{center:{lat:54.0889390,lng:12.0973110}},
+{center:{lat:54.0861790,lng:12.0893030}},
+{center:{lat:54.0776920,lng:12.1119290}},
+{center:{lat:54.0777020,lng:12.1125740}},
+{center:{lat:54.0830910,lng:12.1117530}},
+{center:{lat:54.0831090,lng:12.1116240}},
+{center:{lat:54.0852980,lng:12.1151600}},
+{center:{lat:54.0857350,lng:12.1197100}},
+{center:{lat:54.0773390,lng:12.1212340}},
+{center:{lat:54.0763470,lng:12.1202740}},
+{center:{lat:54.0756560,lng:12.1216750}},
+{center:{lat:54.0719500,lng:12.1150700}},
+{center:{lat:54.0802950,lng:12.0856010}},
+{center:{lat:54.0812350,lng:12.0716310}},
+{center:{lat:54.0862740,lng:12.0784160}},
+{center:{lat:54.0900030,lng:12.1085520}},
+{center:{lat:54.0860140,lng:12.1284320}},
+{center:{lat:54.0881650,lng:12.1406020}},
+{center:{lat:54.1107230,lng:12.0789400}},
+{center:{lat:54.1236220,lng:12.0689340}},
+{center:{lat:54.1296310,lng:12.0805140}},
+{center:{lat:54.1383620,lng:12.0648070}},
+{center:{lat:54.1389350,lng:12.0565830}},
+{center:{lat:54.1395070,lng:12.0455090}},];
 
     function initMap() {
 
@@ -62,13 +76,16 @@
       // Construct the circle for each value in citymap.
       // Note: We scale the area of the circle based on the population.
       // Add the circle for this city to the map.
+      var strOpa = 0.8;
+      var strWei = 2;
+      var fillOpa = 0.35;
       marker_basti.forEach(function(el) {
         var cityCircle = new google.maps.Circle({
           strokeColor: '#CC00CC',
-          strokeOpacity: 0.8,
-          strokeWeight: 2,
+          strokeOpacity: strOpa,
+          strokeWeight: strWei,
           fillColor: '#CC00CC',
-          fillOpacity: 0.35,
+          fillOpacity: fillOpa,
           map: map,
           center: el.center,
           radius: 500
@@ -77,10 +94,10 @@
       marker_willi.forEach(function(el) {
         var cityCircle = new google.maps.Circle({
           strokeColor: '#00CC00',
-          strokeOpacity: 0.8,
-          strokeWeight: 2,
+          strokeOpacity: strOpa,
+          strokeWeight: strWei,
           fillColor: '#0c0',
-          fillOpacity: 0.35,
+          fillOpacity: fillOpa,
           map: map,
           center: el.center,
           radius: 500
@@ -89,10 +106,10 @@
       marker_ruven.forEach(function(el) {
         var cityCircle = new google.maps.Circle({
           strokeColor: '#00c',
-          strokeOpacity: 0.8,
-          strokeWeight: 2,
+          strokeOpacity: strOpa,
+          strokeWeight: strWei,
           fillColor: '#00c',
-          fillOpacity: 0.35,
+          fillOpacity: fillOpa,
           map: map,
           center: el.center,
           radius: 500

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+<body>
+  <div id="map"></div>
+  <script>
+    var citymap = {
+      {
+        center: {
+          lat: 41.878,
+          lng: -87.629
+        },
+        owner: "basti"
+      }, {
+        center: {
+          lat: 40.714,
+          lng: -74.005
+        },
+        owner: "basti"
+      },
+    };
+
+    function initMap() {
+      // Create the map.
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 4,
+        center: {
+          lat: 37.090,
+          lng: -95.712
+        },
+        mapTypeId: 'terrain'
+      });
+
+      // Construct the circle for each value in citymap.
+      // Note: We scale the area of the circle based on the population.
+      // Add the circle for this city to the map.
+      citymap.forEach(function(el) {
+        /*var cityCircle = new google.maps.Circle({
+          strokeColor: '#FF0000',
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: '#FF0000',
+          fillOpacity: 0.35,
+          map: map,
+          center: el.center,
+          radius: 500
+        });*/
+      });
+    }
+
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfdK5_KYTZ_08Zk6ZnyYQ9pZvcYhoA4rk&callback=initMap">
+
+
+  </script>
+</body>
+</html>
